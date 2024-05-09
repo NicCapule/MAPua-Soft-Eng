@@ -7,20 +7,20 @@ document.addEventListener("DOMContentLoaded", function() {
   var backgroundimage6 = new Image();
 
   // Set the source of the image
-  backgroundimage6.src = "pic6.png"; // Replace with the actual path to your image
+  backgroundimage6.src = "images/pic6.png"; // Replace with the actual path to your image
 
   // Once the image is loaded, draw it on the canvas6
     backgroundimage6.onload = function () {
         // Set the canvas6 size to match the desired image size
-        canvas6.width = 1280;
-        canvas6.height = 720;
+        canvas6.width = 1073;
+        canvas6.height = 595;
 
         // Draw the image on the canvas6 with the specified size
         ctx6.drawImage(backgroundimage6, 0, 0, 1073, 595);
     };
 });
 
-class graph6 {
+class Graph6 {
   constructor() {
       this.vertices = new Map();
   }
@@ -81,10 +81,16 @@ class graph6 {
 
   function findshortestpath66() {
 
-    startVertex = document.getElementById('initialLocationBookmark').value;
-    endVertex = document.getElementById('desiredLocationBookmark').value;
+    if (document.getElementById('initialFloorBookmark').value != 5) //change according to floor number
+  		startVertex = 'Elevator Lobby'
+  	else startVertex = document.getElementById('initialLocationBookmark').value;
+
+
+  	if (document.getElementById('desiredFloorBookmark').value != 5) //change according to floor number
+  		endVertex = 'Elevator Lobby'
+  	else endVertex = document.getElementById('desiredLocationBookmark').value;
     var backgroundimage6 = new Image();
-    backgroundimage6.src = "pic6.png";
+    backgroundimage6.src = "images/pic6.png";
 
     //NODES COORDINATES
     const graph6 = new graph6();
@@ -221,7 +227,3 @@ class graph6 {
 }
 
   }
-
-
-
-  
