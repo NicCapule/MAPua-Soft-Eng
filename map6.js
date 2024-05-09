@@ -104,7 +104,7 @@ class Graph6 {
   graph6.addVertex('Computer Lab 601', 133, 217)
   graph6.addVertex('Drawing Lab 602', 233, 217)
   graph6.addVertex('Bathroom', 559, 164)
-  graph6.addVertex('Multi-Faith Prayer Room"', 674, 217)
+  graph6.addVertex('Multi-Faith Prayer Room', 674, 217)
   graph6.addVertex('Pantry', 720, 217)
   graph6.addVertex('Accreditation Office', 809, 217)
   graph6.addVertex('Conference Room ', 847, 217)
@@ -177,6 +177,7 @@ class Graph6 {
   graph6.addEdge('Elevator Lobby_Out', 'Lecture Room 607_Out');
   graph6.addEdge('Elevator Lobby_Out', 'Lecture Room 605_Out');
   graph6.addEdge('Elevator Lobby_Out', 'ISLAM Prayer Room_Out');
+  graph6.addEdge('Elevator Lobby_Out', 'Multi-Faith Prayer Room_Out');
   graph6.addEdge('Bathroom_Out', 'ISLAM Prayer Room_Out');
   graph6.addEdge('ETYSBM_Out', 'ISLAM Prayer Room_Out');
   graph6.addEdge('ETYSBM_Out', 'Bathroom_Out');
@@ -190,8 +191,8 @@ class Graph6 {
   graph6.addEdge('Accreditation Office_Out', 'Conference Room_Out');
   graph6.addEdge('Pantry_Out', 'ETYSB_Out');
   graph6.addEdge('Accreditation Office_Out', 'ETYSB_Out');
-  graph6.addEdge('Multi-Faith Prayer Room', 'Bathroom_Out');
-  graph6.addEdge('Multi-Faith Prayer Room', 'Pantry_Out');
+  graph6.addEdge('Multi-Faith Prayer Room_Out', 'Bathroom_Out');
+  graph6.addEdge('Multi-Faith Prayer Room_Out', 'Pantry_Out');
   const shortestpath6 = graph6.bfs(startVertex, endVertex);
   var canvas6 = document.getElementById('canvas6');
   var ctx6 = canvas6.getContext('2d');
