@@ -15,7 +15,7 @@
     <script src="js/skel.min.js"></script>
     <script src="js/skel-layers.min.js"></script>
     <script src="js/init.js"></script>
-
+	
 <script src="map1.js"></script>
 <script src="map5.js"></script>
 <script src="map6.js"></script>
@@ -135,9 +135,8 @@
 <section id="one" class="wrapper style1">
     <div class="container">
         <!--<img src="images\map-sample.png" alt="Geeks Image" class="map-layout"/>-->
-    <div style="margin-bottom: 20px;"><canvas class="map-layout" id="canvas"></canvas></div>
+        <div style="margin-bottom: 20px;"><canvas class="map-layout" id="canvas"></canvas></div>
 		<div style="margin-bottom: 20px;"><canvas class="map-layout" id="canvas5"></canvas></div>
-    <div style="margin-bottom: 20px;"><canvas class="map-layout" id="canvas6"></canvas></div>
     </div>
 
 
@@ -147,8 +146,8 @@
         var floor = document.getElementById(localStorage.getItem("currentFloor")).value;
         var initialLocationDropdown = document.getElementById("initialLocationBookmark");
         initialLocationDropdown.innerHTML = "";
-
-	var memes = 'G';
+		
+	var memes = 'G';	
 	<var> memes </var>
 	</script>
 
@@ -200,7 +199,7 @@
     </div>
 
     <div class="button-container">
-        <button class="butn" onclick="findShortestPath1();findShortestPath5();findShortestPath6();">GO</button>
+        <button class="butn" onclick="findShortestPath1();findShortestPath5();">GO</button>
     </div>
 </section>
 
@@ -228,10 +227,10 @@
         var initialLocationDropdown = document.getElementById("initialLocationBookmark");
         initialLocationDropdown.innerHTML = "";
 
-
-
+        
+	
         if (floor === "G") {
-
+		
             initialLocationDropdown.innerHTML = `
           <option value=" "> </option>
           <option value="Admin Assist">Admin Assist</option>
@@ -284,7 +283,7 @@
 		  <option value="Lecture Room 222  ">Lecture Room 222 </option>
 		  <option value="Lecture Room 223  ">Lecture Room 223 </option>
 		  <option value=" "> </option>
-
+          
         `;
       } else if (floor === '3') {
         initialLocationDropdown.innerHTML = `
@@ -348,10 +347,10 @@
 		  <option value=" "> </option>
         `;
       }else if (floor === '5') {
-
-
+	  
+	  
         initialLocationDropdown.innerHTML = `
-
+		
           <option value=" "> </option>
 		  <option value="Elevator Lobby">Elevator Lobby </option>
 		  <option value="Bathroom">Bathroom </option>
@@ -374,10 +373,10 @@
       } else if (floor === '6') {
         initialLocationDropdown.innerHTML = `
           <option value=" "> </option>
-          <option value="Elevator Lobby">Elevator Lobby </option>
-		  <option value="Toilet Room">Toilet Room</option>
+          <option value="Elevator Lobby ">Elevator Lobby </option>
+		  <option value="Toilet Room ">Toilet Room</option>
 		  <option value="Multi-Faith Prayer Room">Multi-Faith Prayer Room </option>
-          <option value="Pantry">Pantry </option>
+          <option value="Pantry  ">Pantry </option>
 		  <option value="Accreditation Office">Accreditation Office</option>
 		  <option value="Conference Room">Conference Room </option>
           <option value="Computer Lab 601">Computer Lab 601 </option>
@@ -390,16 +389,16 @@
 		  <option value="ISLAM Prayer Room">ISLAM Prayer Room </option>
 		  <option value="ETYSBM">ETYSBM </option>
           <option value="SLHS">SLHS </option>
-		  <option value="Transit Office">Transit Office </option>
+		  <option value="Transit Office ">Transit Office </option>
         `;
-      }
+      } 
     }
 
     function populateDesiredLocations() {
         var floor = document.getElementById("desiredFloorBookmark").value;
         var desiredLocationDropdown = document.getElementById("desiredLocationBookmark");
         desiredLocationDropdown.innerHTML = "";
-
+        
         if (floor === "G") {
             desiredLocationDropdown.innerHTML = `
 		  <option value=" "> </option>
@@ -520,7 +519,7 @@
 			<option value="Magic lab 501">Magic lab 501 </option>
 			<option value="Art Studio 502">Art Studio 502 </option>
 			<option value="Magic Lab 503">Magic Lab 503 </option>
-			<option value="Lecture Room 504">Lecture Room 504 </option>
+			<option value="Lecture Room 504 ">Lecture Room 504 </option>
 			<option value="SMS Faculty">SMS Faculty </option>
 			<option value="Lecture Room 505">Lecture Room 505 </option>
 			<option value="Lecture Room 506">Lecture Room 506 </option>
@@ -536,25 +535,25 @@
       } else if (floor === '6') {
         desiredLocationDropdown.innerHTML = `
           <option value=" "> </option>
-          <option value="Elevator Lobby">Elevator Lobby </option>
-		  <option value="Toilet Room">Toilet Room</option>
+          <option value="Elevator Lobby ">Elevator Lobby </option>
+		  <option value="Toilet Room ">Toilet Room</option>
 		  <option value="Multi-Faith Prayer Room">Multi-Faith Prayer Room </option>
-          <option value="Pantry">Pantry </option>
-		  <option value="Accreditation Office">Accreditation Office </option>
-		  <option value="Conference Room">Conference Room </option>
-          <option value="Computer Lab 601">Computer Lab 601 </option>
-		  <option value="Drawinhg Lab 602">Drawinhg Lab 602 </option>
-		  <option value="Lecture Room 603">Lecture Room 603</option>
-          <option value="Lecture Room 604">Lecture Room 604 </option>
-		  <option value="Lecture Room 605">Lecture Room 605 </option>
-		  <option value="Lecture Room 606">Lecture Room 606 </option>
-          <option value="Lecture Room 607">Lecture Room 607 </option>
-		  <option value="ISLAM Prayer Room">ISLAM Prayer Room </option>
-		  <option value="ETYSBM">ETYSBM </option>
-          <option value="SLHS">SLHS </option>
-		  <option value="Transient Office">Transient Office </option>
+          <option value="Pantry  ">Pantry </option>
+		  <option value="Accreditation Office  ">Accreditation Office </option>
+		  <option value="Conference Room ">Conference Room </option>
+          <option value="Computer Lab 601 ">Computer Lab 601 </option>
+		  <option value="Drawinhg Lab 602  ">Drawinhg Lab 602 </option>
+		  <option value="Lecture Room 603 ">Lecture Room 603</option>
+          <option value="Lecture Room 604 ">Lecture Room 604 </option>
+		  <option value="Lecture Room 605 ">Lecture Room 605 </option>
+		  <option value="Lecture Room 606 ">Lecture Room 606 </option>
+          <option value="Lecture Room 607 ">Lecture Room 607 </option>
+		  <option value="ISLAM Prayer Room ">ISLAM Prayer Room </option>
+		  <option value="ETYSBM ">ETYSBM </option>
+          <option value="SLHS ">SLHS </option>
+		  <option value="Transient Office ">Transient Office </option>
         `;
-      }
+      } 
     }
 
     function navigate() {
@@ -562,19 +561,19 @@
         var desiredLocation = document.getElementById("desiredLocationBookmark").value;
 		var initialFloor = document.getElementById("initialFloorBookmark").value;
         var desiredFloor = document.getElementById("desiredFloorBookmark").value;
-
+		
 		var newMapSrc = 'map5.js';
 		var newMap = document.createElement('script');
-
+    
     // Set the src attribute of the new script
     newMap.src = newMapSrc;
-
+    
     // Append the new script to the document
     document.body.appendChild(newMap);
-
+    
     console.log('Script source changed.');
 		}
-
+	
 </script>
 </body>
 </html>
