@@ -351,6 +351,7 @@
       var initialLocation = document.getElementById('initialLocationBookmark').value;
       var desiredFloor = document.getElementById('desiredFloorBookmark').value;
       var desiredLocation = document.getElementById('desiredLocationBookmark').value;
+      var message = document.getElementById('messageBookmark').value;
       
       if (initialFloor.trim() === '' || initialLocation.trim() === '' || desiredFloor.trim() === '' || desiredLocation.trim() === '') {
         alert('Please select both initial and desired locations along with their floors.');
@@ -359,12 +360,13 @@
       
       var bookmarkItem = document.createElement('li');
       bookmarkItem.classList.add('bookmark-item');
-      bookmarkItem.textContent = ${initialFloor} Floor, ${initialLocation} to ${desiredFloor} Floor, ${desiredLocation};
+      bookmarkItem.textContent = `${initialFloor} Floor, ${initialLocation} to ${desiredFloor} Floor, ${desiredLocation} - ${message}`;
 
       bookmarkItem.setAttribute('data-initial-floor', initialFloor);
       bookmarkItem.setAttribute('data-initial', initialLocation);
       bookmarkItem.setAttribute('data-desired-floor', desiredFloor);
       bookmarkItem.setAttribute('data-desired', desiredLocation);
+      bookmarkItem.setAttribute('data-message', message || '');
 
       var deleteButton = document.createElement('button');
       deleteButton.classList.add('delete-button');
@@ -381,8 +383,9 @@
         var initialLocation = bookmarkItem.getAttribute('data-initial');
         var desiredFloor = bookmarkItem.getAttribute('data-desired-floor');
         var desiredLocation = bookmarkItem.getAttribute('data-desired');
+        var message = bookmarkItem.getAttribute('data-message');
 
-        var url = Main Page.html?initialFloor=${initialFloor}&initial=${initialLocation}&desiredFloor=${desiredFloor}&desired=${desiredLocation};
+        var url = `Main Page.html?initialFloor=${initialFloor}&initial=${initialLocation}&desiredFloor=${desiredFloor}&desired=${desiredLocation}&message=${message}`;
         window.location.href = url;
       };
 
@@ -394,6 +397,7 @@
       document.getElementById('initialLocationBookmark').value = '';
       document.getElementById('desiredFloorBookmark').value = '';
       document.getElementById('desiredLocationBookmark').value = '';
+      document.getElementById('messageBookmark').value = ''; // Clearing message field
     }
 
     function saveBookmarks() {
@@ -406,6 +410,7 @@
           initial: bookmark.getAttribute('data-initial'),
           desiredFloor: bookmark.getAttribute('data-desired-floor'),
           desired: bookmark.getAttribute('data-desired'),
+          message: bookmark.getAttribute('data-message')
         });
       });
 
@@ -421,18 +426,20 @@
         bookmarksData.forEach(function(bookmarkData) {
           var bookmarkItem = document.createElement('li');
           bookmarkItem.classList.add('bookmark-item');
-          bookmarkItem.textContent = ${bookmarkData.initialFloor} Floor, ${bookmarkData.initial} to ${bookmarkData.desiredFloor} Floor, ${bookmarkData.desired};
+          bookmarkItem.textContent = `${bookmarkData.initialFloor} Floor, ${bookmarkData.initial} to ${bookmarkData.desiredFloor} Floor, ${bookmarkData.desired} - ${bookmarkData.message || ''}`;
 
           bookmarkItem.setAttribute('data-initial-floor', bookmarkData.initialFloor);
           bookmarkItem.setAttribute('data-initial', bookmarkData.initial);
           bookmarkItem.setAttribute('data-desired-floor', bookmarkData.desiredFloor);
           bookmarkItem.setAttribute('data-desired', bookmarkData.desired);
+          bookmarkItem.setAttribute('data-message', bookmarkData.message || '');
 
           var deleteButton = document.createElement('button');
           deleteButton.classList.add('delete-button');
           deleteButton.textContent = 'X';
           deleteButton.onclick = function() {
             bookmarkItem.remove();
+            saveBookmarks();
           };
 
           bookmarkItem.appendChild(deleteButton);
@@ -442,9 +449,9 @@
 
       var urlParams = new URLSearchParams(window.location.search);
       var initialFloor = urlParams.get('initialFloor');
-      var initialLocation = urlParams.get('initialLocation');
+      var initialLocation = urlParams.get('initial');
       var desiredFloor = urlParams.get('desiredFloor');
-      var desiredLocation = urlParams.get('desiredLocation');
+      var desiredLocation = urlParams.get('desired');
 
       if (initialFloor && initialLocation && desiredFloor && desiredLocation) {
         document.getElementById('initialFloorBookmark').value = initialFloor;
@@ -463,15 +470,16 @@
           var initialLocation = event.target.getAttribute('data-initial');
           var desiredFloor = event.target.getAttribute('data-desired-floor');
           var desiredLocation = event.target.getAttribute('data-desired');
+          var message = event.target.getAttribute('data-message');
 
-          var url = new main.html?initialFloor=${initialFloor}&initial=${initialLocation}&desiredFloor=${desiredFloor}&desired=${desiredLocation};
+          var url = `Main Page.html?initialFloor=${initialFloor}&initial=${initialLocation}&desiredFloor=${desiredFloor}&desired=${desiredLocation}&message=${message}`;
           window.location.href = url;        
         }
       }
     }
 
     function backToMainPage() {
-      window.location.href = "new main.html";
+      window.location.href = 'Main Page.html';
     }
 
     window.addEventListener('load', loadBookmarks);
@@ -504,7 +512,7 @@
 
 		<!-- Header -->
 		<header id="header" class="skel-layers-fixed">
-			<a href="new main.html"><img src="images\MAPúa-logo.png" style="height: 45px; text-decoration: none;"/></a>	
+			<a href="main.html"><img src="images\MAPúa-logo.png" style="height: 45px; text-decoration: none;"/></a>	
 			<nav id="nav">
 				<ul>
 					<li><a href="new main.html">Home</a></li>
@@ -561,16 +569,13 @@
 	</div> 
 	<div style="margin-top: 20px;">
 				<button type="button" class="butn" onclick="saveBookmark()">+</button>
-
-				<!-- <button class="butn" onclick="findShortestPath()">GO</button> -->
-
-        <ul id="bookmarks-list" onclick="loadBookmark(event)"></ul>
+				<button class="butn" onclick="findShortestPath()">GO</button>
 	</div>
 		</section>
 
 		<section id="one" class="wrapper style1">
 			<div class="container">
-				<button class="butn"><a href="main.html" style="text-decoration: none;">Back</a></button>
+				<button class="butn"><a href="new main.html" style="text-decoration: none;">Back</a></button>
 			</div>
 		</section>			
 
