@@ -359,7 +359,7 @@
       
       var bookmarkItem = document.createElement('li');
       bookmarkItem.classList.add('bookmark-item');
-      bookmarkItem.textContent = ${initialFloor} Floor, ${initialLocation} to ${desiredFloor} Floor, ${desiredLocation};
+      bookmarkItem.textContent = `${initialFloor} Floor, ${initialLocation} to ${desiredFloor} Floor, ${desiredLocation}`;
 
       bookmarkItem.setAttribute('data-initial-floor', initialFloor);
       bookmarkItem.setAttribute('data-initial', initialLocation);
@@ -379,10 +379,10 @@
       bookmarkItem.onclick = function() {
         var initialFloor = bookmarkItem.getAttribute('data-initial-floor');
         var initialLocation = bookmarkItem.getAttribute('data-initial');
-        var desiredFloor = bookmarkItem.getAttribute('data-desired-floor');
+        var desiredFloor = bookmarkItem.getAttribute('desiredFloorBookmark');
         var desiredLocation = bookmarkItem.getAttribute('data-desired');
 
-        var url = new main.html?initialFloor=${initialFloor}&initial=${initialLocation}&desiredFloor=${desiredFloor}&desired=${desiredLocation};
+        var url = `new main.html?initialFloor=${initialFloor}&initial=${initialLocation}&desiredFloor=${desiredFloor}&desired=${desiredLocation}`;
         window.location.href = url;
       };
 
@@ -421,7 +421,7 @@
         bookmarksData.forEach(function(bookmarkData) {
           var bookmarkItem = document.createElement('li');
           bookmarkItem.classList.add('bookmark-item');
-          bookmarkItem.textContent = ${bookmarkData.initialFloor} Floor, ${bookmarkData.initial} to ${bookmarkData.desiredFloor} Floor, ${bookmarkData.desired};
+          bookmarkItem.textContent = `${bookmarkData.initialFloor} Floor, ${bookmarkData.initial} to ${bookmarkData.desiredFloor} Floor, ${bookmarkData.desired}`;
 
           bookmarkItem.setAttribute('data-initial-floor', bookmarkData.initialFloor);
           bookmarkItem.setAttribute('data-initial', bookmarkData.initial);
@@ -464,7 +464,7 @@
           var desiredFloor = event.target.getAttribute('data-desired-floor');
           var desiredLocation = event.target.getAttribute('data-desired');
 
-          var url = new main.html?initialFloor=${initialFloor}&initial=${initialLocation}&desiredFloor=${desiredFloor}&desired=${desiredLocation};
+          var url = `new main.html?initialFloor=${initialFloor}&initial=${initialLocation}&desiredFloor=${desiredFloor}&desired=${desiredLocation}`;
           window.location.href = url;        
         }
       }
