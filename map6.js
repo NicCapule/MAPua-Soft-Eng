@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // Get the canvas element
-  var canvas = document.getElementById("canvas");
-  var ctx = canvas.getContext("2d");
+  // Get the canvas6 element
+  var canvas6 = document.getElementById("canvas6");
+  var ctx6 = canvas6.getContext("2d");
 
   // Create an image object
-  var backgroundImage = new Image();
+  var backgroundimage6 = new Image();
 
   // Set the source of the image
-  backgroundImage.src = "pic6.png"; // Replace with the actual path to your image
+  backgroundimage6.src = "images/pic6.png"; // Replace with the actual path to your image
 
-  // Once the image is loaded, draw it on the canvas
-    backgroundImage.onload = function () {
-        // Set the canvas size to match the desired image size
-        canvas.width = 1280;
-        canvas.height = 720;
+  // Once the image is loaded, draw it on the canvas6
+    backgroundimage6.onload = function () {
+        // Set the canvas6 size to match the desired image size
+        canvas6.width = 1073;
+        canvas6.height = 595;
 
-        // Draw the image on the canvas with the specified size
-        ctx.drawImage(backgroundImage, 0, 0, 1073, 595);
+        // Draw the image on the canvas6 with the specified size
+        ctx6.drawImage(backgroundimage6, 0, 0, 1073, 595);
     };
 });
 
@@ -41,7 +41,7 @@ class Graph6 {
       }
 
       vertex1.neighbors.push(vertex2);
-      vertex2.neighbors.push(vertex1); // for undirected graph
+      vertex2.neighbors.push(vertex1); // for undirected graph6
   }
 
   bfs(startVertexId, endVertexId) {
@@ -50,15 +50,15 @@ class Graph6 {
 
       while (queue.length > 0) {
           const path = queue.shift();
-          const currentVertex = path[path.length - 1]; //reduces the path.length by one for every node passed
+          const currentVertex6 = path[path.length - 1]; //reduces the path.length by one for every node passed
 
-          if (visited.has(currentVertex.id)) { 
+          if (visited.has(currentVertex6.id)) {
               continue;
           }
 
-          visited.add(currentVertex.id);
+          visited.add(currentVertex6.id);
 
-          const neighbors = currentVertex.neighbors;
+          const neighbors = currentVertex6.neighbors;
 
           for (const neighbor of neighbors) {
               const newPath = [...path, neighbor];
@@ -78,150 +78,153 @@ class Graph6 {
 
 
 
-  
+
   function findShortestPath6() {
 
-    startVertex = document.getElementById('initialLocationBookmark').value;
-    endVertex = document.getElementById('desiredLocationBookmark').value;
-    var backgroundImage = new Image();
-    backgroundImage.src = "pic6.png"; 
+    if (document.getElementById('initialFloorBookmark').value != 6) //change according to floor number
+  		startVertex = 'Elevator Lobby'
+  	else startVertex = document.getElementById('initialLocationBookmark').value;
+
+
+  	if (document.getElementById('desiredFloorBookmark').value != 6) //change according to floor number
+  		endVertex = 'Elevator Lobby'
+  	else endVertex = document.getElementById('desiredLocationBookmark').value;
+    var backgroundimage6 = new Image();
+    backgroundimage6.src = "images/pic6.png";
 
     //NODES COORDINATES
-    const graph = new Graph();
-	
-  
- 
+    const graph6 = new Graph6();
+
+
+
 
 
 	//North Rooms
-  graph.addVertex('Elevator Lobby', 370, 165)
-  graph.addVertex('Computer Lab 601', 133, 217)
-  graph.addVertex('Drawing Lab 602', 233, 217)
-  graph.addVertex('Bathroom', 559, 164)
-  graph.addVertex('Multi-Faith Prayer Room"', 674, 217)
-  graph.addVertex('Pantry', 720, 217)
-  graph.addVertex('Accreditation Office', 809, 217)
-  graph.addVertex('Conference Room ', 847, 217)
+  graph6.addVertex('Elevator Lobby', 370, 165)
+  graph6.addVertex('Computer Lab 601', 133, 217)
+  graph6.addVertex('Drawing Lab 602', 233, 217)
+  graph6.addVertex('Bathroom', 559, 164)
+  graph6.addVertex('Multi-Faith Prayer Room', 674, 217)
+  graph6.addVertex('Pantry', 720, 217)
+  graph6.addVertex('Accreditation Office', 809, 217)
+  graph6.addVertex('Conference Room ', 847, 217)
 
 	//North Rooms out
-  graph.addVertex('Elevator Lobby_Out', 370, 326)
-  graph.addVertex('Computer Lab 601_Out', 133, 326)
-  graph.addVertex('Drawing Lab 602_Out', 233, 326)
-  graph.addVertex('Bathroom_Out', 559, 326)
-  graph.addVertex('Multi-Faith Prayer Room_Out', 674, 326)
-  graph.addVertex('Pantry_Out', 720, 326)
-  graph.addVertex('Accreditation Office_Out', 809, 326)
-  graph.addVertex('Conference Room_Out', 847, 326)
-  
+  graph6.addVertex('Elevator Lobby_Out', 370, 326)
+  graph6.addVertex('Computer Lab 601_Out', 133, 326)
+  graph6.addVertex('Drawing Lab 602_Out', 233, 326)
+  graph6.addVertex('Bathroom_Out', 559, 326)
+  graph6.addVertex('Multi-Faith Prayer Room_Out', 674, 326)
+  graph6.addVertex('Pantry_Out', 720, 326)
+  graph6.addVertex('Accreditation Office_Out', 809, 326)
+  graph6.addVertex('Conference Room_Out', 847, 326)
+
 	//South Rooms
-  graph.addVertex('Lecture Room 604', 168, 427)
-  graph.addVertex('Lecture Room 605', 270, 427)
-  graph.addVertex('Lecture Room 606', 385, 427)
-  graph.addVertex('Lecture Room 607', 487, 427)
-  graph.addVertex('ISLAM Prayer Room', 518, 427)
-  graph.addVertex('ETYSBM', 618, 427)
-  graph.addVertex('SLHS', 848, 427)
-  
+  graph6.addVertex('Lecture Room 604', 168, 427)
+  graph6.addVertex('Lecture Room 605', 270, 427)
+  graph6.addVertex('Lecture Room 606', 385, 427)
+  graph6.addVertex('Lecture Room 607', 487, 427)
+  graph6.addVertex('ISLAM Prayer Room', 518, 427)
+  graph6.addVertex('ETYSBM', 618, 427)
+  graph6.addVertex('SLHS', 848, 427)
+
 	//South Rooms out
-  graph.addVertex('Lecture Room 604_Out', 168, 326)
-  graph.addVertex('Lecture Room 605_Out', 270, 427)
-  graph.addVertex('Lecture Room 606_Out', 385, 427)
-  graph.addVertex('Lecture Room 607_Out', 487, 427)
-  graph.addVertex('ISLAM Prayer Room_Out', 518, 427)
-  graph.addVertex('ETYSBM_Out', 618, 427)
-  graph.addVertex('SLHS_Out', 848, 427)
+  graph6.addVertex('Lecture Room 604_Out', 168, 326)
+  graph6.addVertex('Lecture Room 605_Out', 270, 427)
+  graph6.addVertex('Lecture Room 606_Out', 385, 427)
+  graph6.addVertex('Lecture Room 607_Out', 487, 427)
+  graph6.addVertex('ISLAM Prayer Room_Out', 518, 427)
+  graph6.addVertex('ETYSBM_Out', 618, 427)
+  graph6.addVertex('SLHS_Out', 848, 427)
 
-  
-  
-  
 
-  
-  
+
+
+
+
+
   //DRAWS LINES FROM A NODE TO THEIR NEAREST NEIGHBOURING NODES
-  graph.addEdge('Elevator Lobby', 'Elevator Lobby_Out');
-  graph.addEdge('Computer Lab 601', 'Computer Lab 601_Out');
-  graph.addEdge('Drawing Lab 602', 'Drawing Lab 602_Out');
-  graph.addEdge('Bathroom', 'Bathroom_Out');
-  graph.addEdge('Multi-Faith Prayer Room', 'Multi-Faith Prayer Room_Out');
-  graph.addEdge('Pantry', 'Pantry_Out');
-  graph.addEdge('Accreditation Office', 'Accreditation Office_Out');
-  graph.addEdge('Conference Room', 'Conference Room_Out');
-  
-  graph.addEdge('Lecture Room 604', 'Lecture Room 604_Out');
-  graph.addEdge('Lecture Room 605', 'Lecture Room 605_Out');
-  graph.addEdge('Lecture Room 606', 'Lecture Room 606_Out');
-  graph.addEdge('Lecture Room 607', 'Lecture Room 607_Out');
-  graph.addEdge('ISLAM Prayer Room', 'SLAM Prayer Room_Out');
-  graph.addEdge('ETYSBM', 'ETYSBM_Out');
-  graph.addEdge('SLHS', 'SLHS_Out');
-  
-  graph.addEdge('Elevator Lobby_Out', 'Bathroom_Out');
-  graph.addEdge('Elevator Lobby_Out', 'Drawing Lab 602_Out');
-  graph.addEdge('Computer Lab 601_Out', 'Drawing Lab 602_Out');
-  graph.addEdge('Computer Lab 601_Out', 'Lecture Room 604_Out');
-  graph.addEdge('Computer Lab 601_Out', 'Lecture Room 605_Out');
-  graph.addEdge('Lecture Room 605_Out', 'Drawing Lab 602_Out');
-  graph.addEdge('Lecture Room 605_Out', 'Lecture Room 606_Out');
-  graph.addEdge('Drawing Lab 602_Out', 'Lecture Room 606_Out');
-  graph.addEdge('Lecture Room 604_Out', 'Drawing Lab 602_Out');
-  graph.addEdge('Lecture Room 607_Out', 'Lecture Room 606_Out');
-  graph.addEdge('Lecture Room 607_Out', 'ISLAM Prayer Room_Out');
-  graph.addEdge('Lecture Room 607_Out', 'Bathroom_Out');
-  graph.addEdge('Elevator Lobby_Out', 'Lecture Room 606_Out');
-  graph.addEdge('Elevator Lobby_Out', 'Lecture Room 607_Out');
-  graph.addEdge('Elevator Lobby_Out', 'Lecture Room 605_Out');
-  graph.addEdge('Elevator Lobby_Out', 'ISLAM Prayer Room_Out');
-  graph.addEdge('Bathroom_Out', 'ISLAM Prayer Room_Out');
-  graph.addEdge('ETYSBM_Out', 'ISLAM Prayer Room_Out');
-  graph.addEdge('ETYSBM_Out', 'Bathroom_Out');
-  graph.addEdge('ETYSBM_Out', 'Multi-Faith Prayer Room_Out');
-  graph.addEdge('ETYSBM_Out', 'SLHS_Out');
-  graph.addEdge('ETYSBM_Out', 'SLHS_Out');
-  graph.addEdge('Pantry_Out', 'SLHS_Out');
-  graph.addEdge('Pantry_Out', 'Accreditation Office_Out');
-  graph.addEdge('SLHS_Out', 'Accreditation Office_Out');
-  graph.addEdge('SLHS_Out', 'Conference Room_Out');
-  graph.addEdge('Accreditation Office_Out', 'Conference Room_Out');
-  graph.addEdge('Pantry_Out', 'ETYSB_Out');
-  graph.addEdge('Accreditation Office_Out', 'ETYSB_Out');
-  graph.addEdge('Multi-Faith Prayer Room', 'Bathroom_Out');
-  graph.addEdge('Multi-Faith Prayer Room', 'Pantry_Out');
-  const shortestPath = graph.bfs(startVertex, endVertex);
-  var canvas = document.getElementById('canvas');
-  var ctx = canvas.getContext('2d');
+  graph6.addEdge('Elevator Lobby', 'Elevator Lobby_Out');
+  graph6.addEdge('Computer Lab 601', 'Computer Lab 601_Out');
+  graph6.addEdge('Drawing Lab 602', 'Drawing Lab 602_Out');
+  graph6.addEdge('Bathroom', 'Bathroom_Out');
+  graph6.addEdge('Multi-Faith Prayer Room', 'Multi-Faith Prayer Room_Out');
+  graph6.addEdge('Pantry', 'Pantry_Out');
+  graph6.addEdge('Accreditation Office', 'Accreditation Office_Out');
+  graph6.addEdge('Conference Room', 'Conference Room_Out');
 
-  // Clear the canvas
-  //ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-  
-  if (shortestPath) {
-    console.log(`Shortest path from ${startVertex} to ${endVertex}: ${shortestPath.join(' -> ')}`);
+  graph6.addEdge('Lecture Room 604', 'Lecture Room 604_Out');
+  graph6.addEdge('Lecture Room 605', 'Lecture Room 605_Out');
+  graph6.addEdge('Lecture Room 606', 'Lecture Room 606_Out');
+  graph6.addEdge('Lecture Room 607', 'Lecture Room 607_Out');
+  graph6.addEdge('ISLAM Prayer Room', 'SLAM Prayer Room_Out');
+  graph6.addEdge('ETYSBM', 'ETYSBM_Out');
+  graph6.addEdge('SLHS', 'SLHS_Out');
 
-    // Draw the image on the canvas
-    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+  graph6.addEdge('Elevator Lobby_Out', 'Bathroom_Out');
+  graph6.addEdge('Elevator Lobby_Out', 'Drawing Lab 602_Out');
+  graph6.addEdge('Computer Lab 601_Out', 'Drawing Lab 602_Out');
+  graph6.addEdge('Computer Lab 601_Out', 'Lecture Room 604_Out');
+  graph6.addEdge('Computer Lab 601_Out', 'Lecture Room 605_Out');
+  graph6.addEdge('Lecture Room 605_Out', 'Drawing Lab 602_Out');
+  graph6.addEdge('Lecture Room 605_Out', 'Lecture Room 606_Out');
+  graph6.addEdge('Drawing Lab 602_Out', 'Lecture Room 606_Out');
+  graph6.addEdge('Lecture Room 604_Out', 'Drawing Lab 602_Out');
+  graph6.addEdge('Lecture Room 607_Out', 'Lecture Room 606_Out');
+  graph6.addEdge('Lecture Room 607_Out', 'ISLAM Prayer Room_Out');
+  graph6.addEdge('Lecture Room 607_Out', 'Bathroom_Out');
+  graph6.addEdge('Elevator Lobby_Out', 'Lecture Room 606_Out');
+  graph6.addEdge('Elevator Lobby_Out', 'Lecture Room 607_Out');
+  graph6.addEdge('Elevator Lobby_Out', 'Lecture Room 605_Out');
+  graph6.addEdge('Elevator Lobby_Out', 'ISLAM Prayer Room_Out');
+  graph6.addEdge('Elevator Lobby_Out', 'Multi-Faith Prayer Room_Out');
+  graph6.addEdge('Bathroom_Out', 'ISLAM Prayer Room_Out');
+  graph6.addEdge('ETYSBM_Out', 'ISLAM Prayer Room_Out');
+  graph6.addEdge('ETYSBM_Out', 'Bathroom_Out');
+  graph6.addEdge('ETYSBM_Out', 'Multi-Faith Prayer Room_Out');
+  graph6.addEdge('ETYSBM_Out', 'SLHS_Out');
+  graph6.addEdge('ETYSBM_Out', 'SLHS_Out');
+  graph6.addEdge('Pantry_Out', 'SLHS_Out');
+  graph6.addEdge('Pantry_Out', 'Accreditation Office_Out');
+  graph6.addEdge('SLHS_Out', 'Accreditation Office_Out');
+  graph6.addEdge('SLHS_Out', 'Conference Room_Out');
+  graph6.addEdge('Accreditation Office_Out', 'Conference Room_Out');
+  graph6.addEdge('Pantry_Out', 'ETYSB_Out');
+  graph6.addEdge('Accreditation Office_Out', 'ETYSB_Out');
+  graph6.addEdge('Multi-Faith Prayer Room_Out', 'Bathroom_Out');
+  graph6.addEdge('Multi-Faith Prayer Room_Out', 'Pantry_Out');
+  const shortestpath6 = graph6.bfs(startVertex, endVertex);
+  var canvas6 = document.getElementById('canvas6');
+  var ctx6 = canvas6.getContext('2d');
+
+  // Clear the canvas6
+  //ctx6.clearRect(0, 0, canvas6.width, canvas6.height);
+
+
+  if (shortestpath6) {
+    console.log(`Shortest path from ${startVertex} to ${endVertex}: ${shortestpath6.join(' -> ')}`);
+
+    // Draw the image on the canvas6
+    ctx6.drawImage(backgroundimage6, 0, 0, canvas6.width, canvas6.height);
+    ctx6.drawImage(backgroundimage6, 0, 0, canvas6.width, canvas6.height);
 
     // Set the line color
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 3;
+    ctx6.strokeStyle = "red";
+    ctx6.lineWidth = 3;
 
     // Draw lines along the shortest path
-    for (let i = 0; i < shortestPath.length - 1; i++) {
-        const currentVertex = shortestPath[i];
-        const nextVertex = shortestPath[i + 1];
+    for (let i = 0; i < shortestpath6.length - 1; i++) {
+        const currentVertex6 = shortestpath6[i];
+        const nextVertex6 = shortestpath6[i + 1];
 
-        // Draw a line between currentVertex and nextVertex
-        ctx.beginPath();
-        ctx.moveTo(currentVertex.x, currentVertex.y);
-        ctx.lineTo(nextVertex.x, nextVertex.y);
-        ctx.stroke();
+        // Draw a line between currentVertex6 and nextVertex6
+        ctx6.beginPath();
+        ctx6.moveTo(currentVertex6.x, currentVertex6.y);
+        ctx6.lineTo(nextVertex6.x, nextVertex6.y);
+        ctx6.stroke();
     }
 } else {
     console.log(`No path found from ${startVertex} to ${endVertex}`);
 }
 
   }
-
-  
-  
-  
