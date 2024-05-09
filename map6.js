@@ -79,21 +79,21 @@ class Graph6 {
 
 
 
-  function findshortestpath66() {
+  function findShortestPath6() {
 
-    if (document.getElementById('initialFloorBookmark').value != 5) //change according to floor number
+    if (document.getElementById('initialFloorBookmark').value != 6) //change according to floor number
   		startVertex = 'Elevator Lobby'
   	else startVertex = document.getElementById('initialLocationBookmark').value;
 
 
-  	if (document.getElementById('desiredFloorBookmark').value != 5) //change according to floor number
+  	if (document.getElementById('desiredFloorBookmark').value != 6) //change according to floor number
   		endVertex = 'Elevator Lobby'
   	else endVertex = document.getElementById('desiredLocationBookmark').value;
     var backgroundimage6 = new Image();
     backgroundimage6.src = "images/pic6.png";
 
     //NODES COORDINATES
-    const graph6 = new graph6();
+    const graph6 = new Graph6();
 
 
 
